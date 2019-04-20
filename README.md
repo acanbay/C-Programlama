@@ -1,4 +1,4 @@
-# C-Programlama
+# C Programlama
 Kısa bilgilendirmeler ve örnekleri içermektedir.
  
 [1. Giriş](#1)  
