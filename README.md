@@ -122,8 +122,16 @@ cikarma = a - b;
 carpma = a * b;
 bolme = a / b;
 ```
-
 Şeklinde kullanılırlar.
+
+
+`a++` : a'yı 1 arttırır (`a = a + 1` ile aynı anlamdadır)    
+`a--`	: a'yı 1 azaltır (`a = a - 1` ile aynı anlamdadır)    
+`a += 5`	: a'yı 5 arttırır (`a = a + 5` ile aynı anlamdadır)    
+`a -= 6` : a'yı 6 eksiltir (`a = a - 6` ile aynı anlamdadır.)    
+`a *= 3` : a'yı 3 ile çarpar (`a = a * 3` ile aynı anlamdadır.)    
+`a /= 4` : a'yı 4 e böler (`a = a / 4` ile aynı anlamdadır.)    
+
 
 `%` operatörü modül'ü bulan operatördür. `A % B` işlemi A'nın B'ye bölümünden kalanı verir.
 
@@ -177,16 +185,92 @@ scanf("%d",&a);
 
 *5, 6, 7, 8, 9, ve 10. örnekler bu bölümle ilgilidir.*
 
+`==`		: eşittir    
+`!=`		: eşit değildir    
+`||`		: veya    
+`&&`		: ve    
+`!(ifade)`	: ifadenin değili  
 
+**if, if else, else**
 
+`if` yapısı, istediği koşullar sağlandığı sürece içindeki işlemlerin yapıldığı kalıplardan oluşur. Eğer koşul sağlanmıyorsa yapıya girilmez ve o bölüm atlanır.
 
+```C
+if(koşul1){
+    yapılacak işlemler;
+}
+else if(koşul2){
+    yapılacak işlemler;
+}
+else if(koşul3){
+    yapılacak işlemler;
+}
+. . .
+else(koşulN){
+    yapılacak işlemler;
+}
+```
 
+şeklinde kullanılır.
+
+**switch-case**
+
+`switch-case` yapısı seçenekler üzerinden çalışır. Her seçenek için farklı işlemler atanır ve hangi seçenek gelmişse onun işlemleri yapılır.
+
+```C
+switch (secenekler){
+    case secenek1: 
+        yapılacak işlemler ; 
+        break;
+    case secenek2: 
+        yapılacak işlemler ; 
+        break;
+	. . .
+    default: yapılacak işlemler;
+}
+```
+
+*`break`*, yapıdan (bu bölüm için switch-case yapısı) çıkılmasını sağlar. Eğer kullanılmamışsa o durum ve sonrasındaki durumların hepsi açık Kabul edilir ve hepsindeki işlemler yapılır.
+
+*`goto`*, önceden tanımlanmış bir noktaya sıçramayı sağlar.
 
 <a name="3"/>
 
 ## 3. Döngüler
 
 *11, 12, 13, 14, 15, 16, 17 ve 18. örnekler bu bölümle ilgilidir.*
+
+**while**
+
+`while`, parantez içerisindeki ifade sağlanıyorsa içerisindeki işlemleri gerçekleştirir. Daha sonra tekrar başa döner ve işlemlerden sonra da ifadenin sağlanıp sağlanmadığını test eder. Eğer hala sağlanıyorsa tekrar işlemleri yapar. İşlemler ifadeyi bozana kadar döngü bu şekilde devam eder.
+
+
+```C
+while(ifade){
+    yapılacak işlemler;
+}
+```
+**do-while**
+
+`do-while` döngüsünde önce içerisindeki işlemler yapılır ve işlemler bitirdikten sonra while içerisindeki koşul test edilir. Koşul sağlanıyorsa tekrar do’ya döner, aksi halde döngüden çıkar. 
+
+```C
+do{
+    yapılacak işlemler;
+}while(ifade);
+```
+
+**for**
+
+`for` döngüsü de while gibi içindeki şart sağlandığı sürece döngüye devam eder. Şart bozulduğunda döngüden çıkılır.
+while’den farklı olarak kesin bir ifadeyi test etmez ve değişken bir ifade kullanır. Kendi içinde işlemler yaparak döngü işlemlerine veri verebilir.
+
+
+```C
+for(i=0;i<#;i++){
+    yapılacak işlemler;
+}
+```
 
 <a name="4"/>
 
