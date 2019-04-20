@@ -537,3 +537,5 @@ while(karakter!=EOF){
 }
 ```
 kontrolü dosyanın sonuna gelinmediği sürece (EOF= end of file, dosya sonu) işlemlerin yapılmasını sağlar.
+
+____________
