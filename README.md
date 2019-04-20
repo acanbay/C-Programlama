@@ -1,5 +1,5 @@
 # C Programlama
-Kısa bilgilendirmeler ve örnekleri içermektedir.
+Kısa bilgiler ve örnekleri içermektedir.
  
 [1. Giriş](#1)  
 [2. Kontrol Yapıları](#2)  
