@@ -230,7 +230,9 @@ switch (secenekler){
 }
 ```
 
-*`break`*, yapıdan (bu bölüm için switch-case yapısı) çıkılmasını sağlar. Eğer kullanılmamışsa o durum ve sonrasındaki durumların hepsi açık Kabul edilir ve hepsindeki işlemler yapılır.
+*`break`*, yapıdan çıkılmasını sağlar. 
+
+*`continue`*, ifade sağlanıyorsa döngünün başına gönderir. 
 
 *`goto`*, önceden tanımlanmış bir noktaya sıçramayı sağlar.
 
@@ -278,15 +280,184 @@ for(i=0;i<#;i++){
 
 *19, 20, 21, 22 ve 23. örnekler bu bölümle ilgilidir.*
 
+Diziler aslında içerisinde birden fazla değer tutan değişken tipleridir. 
+
+```C
+int dizi[4] = {1,2,3,4};
+```
+şeklinde tamsayı dizilri oluşturulabilir. Daha sonra içerisindeki değerlere ulaşılmak indislerden yararlanılır. Örneğin bu dizideki 1 değeri dizinin 0. değişkenidir (diziler 0'dan başlar) ve `dizi[0]` şeklinde kullanılır. Yine dizinin bir değerini değiştirmek istersek de benzer şekilde indislerden yararlanırız. örneğin 3. değerini 5 yapmak istersek `dizi[3] = 5` şeklinde değer atarız.
+
+Boş bir dizi oluşturmak için ise `int dizi[];` şeklinde tanım yapılabilir.
+
+Not: `int` ifadesi göstermek için kullanılmıştır. Yerine diğer sayı tipleri de gelebilir.
+
+**Karakter dizileri**
+
+Karakter dizileri de benzer şekilde tanımlanır. Sadece küçük bir farkları vardır.
+
+```C
+char dizi[4] = {'a','l','i'};
+```
+Görüldüğü gibi karakter dizilerinde içerideki eleman sayısından bir fazla sayıda indis belirlenir. Bunun nedeni RAM'in karakter dizisinin bittiğini anlaması için dizi sonuna `\0` diye bir elemanın atılmasıdır. Bu nedenle dizi bir eleman fazla olur. 
+
+Karakter dizilerinin elemanlarını tanımlamak için,
+
+```C
+char dizi[4]="ali";
+```
+
+şeklinde daha kolay bir yol da kullanılabilir. 
+
+Karakter dizileri string diye de adlandırılır. Stringleri scanf fonksiyonu ile alabilmek için `%s` formatı kullanılır. Böylelikle eleman eleman değil de bütün olarak alınabilirler.
+
+```C
+scanf("%s",(char*)&dizi);
+```
+
+Karakter dizilerini kullanıcıdan alırken kullanılacak daha iyi bir yöntem de mevcuttur. Bu yöntem `gets()` fonksiyonudur ve 
+
+```C
+gets(dizi);
+```
+
+şeklinde yine karakter dizisini ekrana basmak için daha kolay bir yol olan `puts()`
+
+```C
+puts(dizi);
+```
+şeklinde kullanılır.
+
+**Çok Boyutlu Diziler**
+
+```C
+int dizi[#1][#2]. . .;
+```
+
+şeklinde tanımlanan dizilerdir (#'lar yerine sayı gelecektir). #1 dizi içinde kaç bölüm olduğunu (matrislerde sutun sayısını), #2 ise her bölümün elemanını (sayır sayısını) belirtir. Ulaşılmak istenen değer için 2 indis kullanılır. Bir örnekle gösterecek olursak,
+
+```C
+int dizi[3][2] = {{1,2},{3,4},{5,6}};
+```
+Şeklinde tanımlanan dizide 5 sayısı `dizi[2][0]` elemanı olur. 
+
 <a name="5"/>
 
 ## 5. Fonksiyonlar
 *24 ve 25. örnekler bu bölümle ilgilidir.*
 
+`main()` dışında tanımlanan ve `main()` içerisinde çağırıldığında bi takım işlemler ve sonuç ile gelen yapılardır.
+
+**void fonksiyonu**
+
+Boş değer döndüren fonksiyonlardır. Fonksiyon sonucu bir değere dönmez ve sadece içindeki işlemler yapılır.
+
+```C
+void fonksiyon(){
+   yapılacaklar;
+}
+```
+şeklinde oluşturulur.
+
+**Değer döndüren fonksiyonlar**
+
+Değer döndüren fonksiyonlar dönecek değere bağlı bir tiple tanımlanırlar. 
+
+Örneğin
+
+```C
+int carpma(int x, int y){
+   return x*y;
+ }
+```
+fonksiyonu 2 değer ile çağırılır ve çıktı olarak değerlerin çarpımınu döndürür.
+
+**Recursive fonksiyonlar**
+
+İçerisinde kendisini çağıran fonksiyonlardır. 
+
+Örnek:
+
+```C
+int faktoriyel(int sayi){
+   if(sayi<=1){
+      return 1;
+   }
+   else{
+      return sayi*faktoriyel(sayi-1);
+   }
+}
+```
+Burada faktöriyel kendisine gelen sayıyı bir azaltarak tekrar kendi içine göndermektedir. Böylelikle sayı 1 olana kadar her bir azaltılıp çarpılarak sayının faktöriyeline ulaşmaktadır.
+
+**Standart kütüphane fonksiyonları**
+
+String'ler için işlemleri kolaylaştıran fonksiyonlardır.
+
+**`strlen(string)`:** içindeki string'in boyutunu verir.
+
+**`strcpy(string1,string2)`:** string2'yi string1 içine kopyalar.
+
+**`strncpy(string1,string2,#)`:** string2'yi #. elemandan itibaren string2'ye kopyalar.
+
+**`strcat(string1,string2)`:** string1'in ardına string2'yi ekler.
+
+**`strrev(string)`:** string'in harf sırasına göre tersini alır.
+
+**`strcmp(string1,string2)`:** iki string'i karşılaştırır. eğer eşitlerse `0`, string1 alfabetik olarak string2'den büyükse `<0`, string2 alfabetik olarak string1'den büyükse `>0` değeri verir.
+
 <a name="6"/>
 
 ## 6. İşaretçiler (Pointers)
 *26. örnek bu bölümle ilgilidir.*
+
+Bir pointer ana bellekte bir adres belirtir ve `*` ile tanımlanır.
+
+Örnek:
+
+```C
+int sayi = 5;
+int *adres;
+adres = sayi;
+```
+
+`adres` değişkeni bilgi olarak `sayi` değişkeninin RAM'deki yerini alır bu nedenle `sayi`'nın kendisi gibi 5'e eşit değildir.	
+5'e eşit olan RAM'de o adreste saklanan veriyi alan `*adres` ifadesi olur.
+
+**Dinamik bellek yönetimi**
+
+**`malloc`**
+
+RAM'de yer ayırma işlemi yapar (ayrılan yerdeki eski veriyi silmez).
+
+```C
+int *alan = malloc(miktar*size);
+```
+
+şeklinde alınır. `size` içeri girilecek değişkenin RAM'de kaplayacağı alanı (Örneğin int için 4 byte), `miktar` ise o veri tipinden kaç tane alınacağını belirtir.
+
+**`calloc`**
+
+RAM'de yer ayırma işlemi yapar (ayrılan yerdeki eski veriyi siler).
+
+```C
+int *alan = calloc(miktar*size);
+```
+
+**`realloc`**
+
+Ayrılan alanı yeniden boyurlandırır.
+
+```C
+alan = realloc(alan,miktar*size);
+```
+
+**`free`**
+
+Ayrılan alanı RAM'e geri verir.
+
+```C
+free(alan);
+```
 
 <a name="7"/>
 
