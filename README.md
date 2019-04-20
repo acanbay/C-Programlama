@@ -10,9 +10,9 @@ Kısa bilgilendirmeler ve örnekleri içermektedir.
 [6. İşaretçiler (Pointers)](#6)   
 [7. Yapılar (Structures)](#7)   
 [8. Dosya İşlemleri](#8)   
-   
 
 <a name="1"/>
+
 ## 1. Giriş
 
 C, genel amaçlı bir programlama dilidir ve 1972 yılında Dennis Ritchie ve Brien Kernighan tarafından Bell Laboratuvarları’nda geliştirilmiştir. Ritchie ve Kernighan “The C Programming Language” adlı kitaplarında bu dilin geniş bir anlatımı yapmış ve kullanımını açıklamışlardır.
@@ -115,21 +115,41 @@ bolme = a / b;
 
 Özel matematiksel fonksiyonların kullanımı için `math.h` kütüphanesinin çağırılması gerekmektedir. bu kütüphane çağırıldıktan sonra `sqrt()` fonksiyonu ile karekök alma işlemleri ( `sqrt(A)` şeklinde kullanılır ) ve `pow()` fonksiyonu ile üs alma işlemleri ( `pow(A,B)` ) şeklinde kullanılır ve A nın B üssü iişlemini yapar) gibi fonksiyonlar kullanılabilir.
 
-***Ekrana yazı yazdırma ve kullanıcıdan veri alma***
+***Ekrana yazı yazdırma ve kullanıcıdan veri alma***     
+
 
 <a name="2"/>
-## 2 Kontrol Yapıları
+
+## 2. Kontrol Yapıları
+
+
 <a name="3"/>
-## 3 Döngüler
+
+## 3. Döngüler
+
+
 <a name="4"/>
-## 4 Diziler
+
+## 4. Diziler
+
 <a name="5"/>
-## 5 Fonksiyonlar
+
+## 5. Fonksiyonlar
+
+
 <a name="6"/>
-## 6 İşaretçiler (Pointers)
+
+## 6. İşaretçiler (Pointers)
+
+
 <a name="7"/>
-## 7 Yapılar (Structures)
+
+## 7. Yapılar (Structures)
+
+
 <a name="8"/>
-## 8 Dosya İşlemleri
+
+## 8. Dosya İşlemleri
+
 
 
