@@ -527,7 +527,7 @@ Diğer yol ise karakter alırken kullanılan `fgetc()` fonksiyonudur. Tek bir ka
 fgetc(dosya);
 ```
 
-`fgetc()` fonksiyonu `fgets()` şeklinde kullanılırsa [`gets()`](#puts)'in dosya işlemlerinde kullanılan halini verir.
+`fgetc()` fonksiyonu `fgets()` şeklinde kullanılırsa [`gets()`](#gets)'in dosya işlemlerinde kullanılan halini verir.
 
 **Dosya kontrol işlemi**
 
