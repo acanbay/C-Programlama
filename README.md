@@ -1,7 +1,6 @@
 # C-Programlama
 Kısa bilgilendirmeler ve örnekleri içermektedir.
-
-##### İçerik  
+ 
 [1. Giriş](#1)  
 [2. Kontrol Yapıları](#2)  
 [3. Döngüler](#3)  
@@ -143,6 +142,7 @@ bolme = a / b;
 
 Ekrana yazı yazdırmak için `printF()` fonksiyonu, kullanıcıdan veri almak için ise `scanf()` fonksiyonu kullanılır.
 
+<a name="printf"/>
 **`printf()`:**
 
 Sadece ekrana yazı bastırılmak istendiğinden `printf` fonksiyonu,
@@ -170,7 +170,7 @@ printf("a değeri: %.2f",a);
 ```
 gibi bir kullanım yapabiliriz. Gelecek değişkenin formatını belirttiğimiz bölümde nokta koyup sonra kaçıncı basamağa gitmek istediğimizi belirtebiliriz.
 
-
+<a name="scanf"/>
 **`scanf()`:**
 
 Bu fonksiyon kullanılırken önce tırnak işareti içerisinde alınacak değişkenin formatı belirtilir. Daha sonra ise `&` kullanılarak değişkenin hangi adreste saklanacağı bilgisayara tanımlanır (Pointers bölümünde ayrıntısı verilecektir).
@@ -313,13 +313,13 @@ Karakter dizileri string diye de adlandırılır. Stringleri scanf fonksiyonu il
 ```C
 scanf("%s",(char*)&dizi);
 ```
-
+<a name="gets"/>
 Karakter dizilerini kullanıcıdan alırken kullanılacak daha iyi bir yöntem de mevcuttur. Bu yöntem `gets()` fonksiyonudur ve 
 
 ```C
 gets(dizi);
 ```
-
+<a name="puts"/>
 şeklinde yine karakter dizisini ekrana basmak için daha kolay bir yol olan `puts()`
 
 ```C
@@ -464,9 +464,76 @@ free(alan);
 ## 7. Yapılar (Structures)
 *27. örnek bu bölümle ilgilidir.*
 
+Birbiri ile ilişkili olan değerlerin bir arada turulmasını sağlarlar. `main()` dışarısında tanımlanırlar (fonksiyonlar gibi). Genel yazılımı
+
+```C
+struct yapi{
+  . . .
+}elemanlar;
+```
+şeklindedir. `elemanlar` bölümünde yapı elemanları tanımlanırken öntanımlı (default) değerleri de atanabilir. `. . .` olan bölümde ise yapının özellikleri (mesela insan isimli bir yapı için yaş, cinsiyet, boy, kilo... gibi özellikler) belirlenir. 
+
+Yapı tanımlandıktan sonra main içerisinde elemanlarının özellikleri
+
+```C
+eleman.ozellik = ##;
+```
+şeklinde tanımlanabilir.
+
+
 <a name="8"/>
 
 ## 8. Dosya İşlemleri
 
+**Dosya Açma ve Kapama**
 
+```C
+FILE *dosya;
+dosya = fopen("dosya_yolu/dosya.txt","MOD");
+...
+fclose(dosya);
+```
+`FILE *dosya`, bir dosya adlı bir pointer atanıp dosya `fopen()` ile açılır. Ardından işlemler bitince `fclose()` ile açılmış olan dosya kapanır.
 
+`MOD` ile verilen yer dosyanın açılma modudur ve bu modlar altta listelenmişdir.
+
+`r`: sadece okuma
+
+`w`: sadece yazma (içeriği silerek başlar)
+
+`a`: ekleme modu
+
+**Dosyaya yazma işlemleri**
+
+Dosya yazımında iki farklı yöntem vardır. Bunlardan ilki `fprintf()` fonksiyonudur. Bu fonksiyon [`printf()`](#printf) ile aynı şekilde tanımlanır. Tek farkı ekrana değil de dosyaya yazdırmasıdır.
+
+Diğer bir yol ise karakter yazımında kullanılan `fputc()` fonksiyonudur. Tek bir karakter yazmaya yarar.
+
+```C
+fputc('A',dosya);
+```
+
+`fputc()` fonksiyonu `fputs()` şeklinde kullanılırsa [`puts()`](#puts)'un dosya işlemlerinde kullanılan halini verir.
+
+**Dosya okuma işlemleri**
+
+Doya okumada da yazmada olduğu gibi iki yöntem mevcuttur.
+
+İlki `fscanf()` fonksiyonudur. Bu fonksiyon [`scanf()`](#scanf) ile aynı şekilde tanımlanır ve dosyadan veri almaya yarar.
+
+Diğer yol ise karakter alırken kullanılan `fgetc()` fonksiyonudur. Tek bir karakter almaya yarar.
+
+```C
+fgetc(dosya);
+```
+
+`fgetc()` fonksiyonu `fgets()` şeklinde kullanılırsa [`gets()`](#puts)'in dosya işlemlerinde kullanılan halini verir.
+
+**Dosya kontrol işlemi**
+
+```C
+while(karakter!=EOF){
+  ...
+}
+```
+kontrolü dosyanın sonuna gelinmediği sürece (EOF= end of file, dosya sonu) işlemlerin yapılmasını sağlar.
